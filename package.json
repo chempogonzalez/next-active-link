@@ -25,7 +25,7 @@
     "classname",
     "wrapper"
   ],
-  "author": "Chempo gonzalez <manugonzalezfranco@gmail.com>",
+  "author": "Chempo gonzalez <chempo.glez@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@chempo/ec-linter": "1.0.10",
