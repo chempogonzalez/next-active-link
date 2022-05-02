@@ -1,0 +1,54 @@
+{
+  "name": "next-active-link",
+  "version": "1.0.0",
+  "description": "Active link component for Next.JS, wrapping next/link component",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "npm run lint -- --fix"
+  },
+  "keywords": [],
+  "author": "Chempo gonzalez <manugonzalezfranco@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@chempo/ec-linter": "1.0.10",
+    "@types/node": "17.0.31",
+    "@types/react": "18.0.8",
+    "next": "12.1.5",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "tsup": "5.12.6",
+    "typescript": "4.6.4"
+  },
+  "dependencies": {
+    "tiny-cn": "1.0.0"
+  },
+  "peerDependencies": {
+    "next": ">= 12.0.0",
+    "react": ">= 17.0.0",
+    "react-dom": ">= 17.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  }
+}
