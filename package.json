@@ -18,7 +18,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "npm run lint -- --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "next",
+    "link",
+    "active",
+    "classname",
+    "wrapper"
+  ],
   "author": "Chempo gonzalez <manugonzalezfranco@gmail.com>",
   "license": "MIT",
   "devDependencies": {
