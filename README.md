@@ -1,7 +1,9 @@
-# ✅ next-active-link
+# ✅ next-active-link [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+<img src="https://img.shields.io/npm/v/next-active-link?style=for-the-badge" />
 
-> Active link component for Next.JS, wrapping next/link component
+> Active link component for Next.JS
 
+## 🔖 Description
 `next/link` wrapper which automatically add the provided class to the link element.
 
 ## 📦 Installation
@@ -13,7 +15,7 @@ $ npm install next-active-link
 ## 🚀 Usage
 The usage is the same as the `next/link` component. More information in [Official docs](https://nextjs.org/docs/api-reference/next/link)
 
-The only difference is that the _**next-active-link**_ component has an `activeClassName` attribute .
+The difference is that the _**next-active-link**_ component has an `activeClassName` attribute .
 ```tsx
 import { ActiveLink } from 'next-active-link';
 
@@ -24,9 +26,8 @@ function MyPage() {
     </ActiveLink>
 
 
-
     {
-      /** Add 'active-link' className to "a" tag
+      /** Adds 'active-link' className to "a" tag
       * if the current page is '/contact'
       */
     }
@@ -36,3 +37,7 @@ function MyPage() {
   )
 }
 ```
+
+## 🤓 Happy Code
+
+> Created with Typescript! ⚡ and latin music 🎺🎵
