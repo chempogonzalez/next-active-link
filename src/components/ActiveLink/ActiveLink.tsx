@@ -25,6 +25,10 @@ export type ActiveLinkProps = {
 } & LinkProps
 
 
+
+
+
+
 /**
  * A Link Component wrapper that adds an active class name when the link is active.
  */
@@ -33,7 +37,7 @@ export const ActiveLink = ({ children, activeClassName, ...props }: ActiveLinkPr
   const childClassName = (child.props.className ?? '') as string
 
   /**
-   * props.as => Dynamic routes
+   * props.as => Dynamic routes and rewrites
    * props.href => Static routes
    */
   const url = (props.as || props.href) as URL
@@ -43,6 +47,8 @@ export const ActiveLink = ({ children, activeClassName, ...props }: ActiveLinkPr
     childClassName,
     linkUrl: url,
   })
+
+
 
   return (
     <Link {...props}>
