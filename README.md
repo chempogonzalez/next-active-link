@@ -55,7 +55,30 @@ import { ActiveLink } from 'next-active-link';
   function MyPage() {
   /**
    * Adds 'active-link' className to "a" tag
-   * if the current page is '/contact?name=Chempo'
+   * if the current page is '/contact'
+  */
+  return (
+    <ActiveLink
+      href="/contact"
+      activeClassName="active-link"
+      onActiveChange={(isActive) => console.log(isActive)}
+      {/* Default options */}
+      activeMatchOptions={{
+        exact: true
+      }}
+    >
+      <a>Contact</a>
+    </ActiveLink>
+  )
+
+
+  /** ------------------------------------------------------ */
+
+  function MyPage() {
+  /**
+   * Adds 'active-link' className to "a" tag
+   * if the current page is '/any-page?name=Chempo'
+   * (has the exact query params)
   */
   return (
     <ActiveLink
