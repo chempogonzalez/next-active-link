@@ -55,11 +55,11 @@ import { ActiveLink } from 'next-active-link';
   function MyPage() {
   /**
    * Adds 'active-link' className to "a" tag
-   * if the current page is '/contact'
+   * if the current page is '/contact?name=Chempo'
   */
   return (
     <ActiveLink
-      href="/contact"
+      href="/contact?name=Chempo"
       activeClassName="active-link"
       onActiveChange={(isActive) => console.log(isActive)}
       activeMatchOptions={{
