@@ -18,10 +18,30 @@ export type ActiveLinkProps = {
    */
   children: JSX.Element
 
+
   /**
    * Active class name to be added.
    */
   activeClassName: string
+
+
+  /**
+   * A set of options which specify how to determine if a url is active
+   */
+  activeMatchOptions?: {
+    exact: boolean
+  } | {
+    paths?: 'exact' | 'partial'
+    queryParams?: 'exact' | 'partial'
+    fragment?: 'exact'
+  }
+
+
+  /**
+   * You can use the output onActiveChange to get notified
+   * each time the link becomes active or inactive.
+   */
+  onActiveChange?: (isActive: boolean) => unknown
 } & LinkProps
 
 
@@ -37,15 +57,18 @@ export const ActiveLink = ({ children, activeClassName, ...props }: ActiveLinkPr
   const childClassName = (child.props.className ?? '') as string
 
   /**
-   * props.as => Dynamic routes and rewrites
-   * props.href => Static routes
+   * as => Dynamic routes and rewrites
+   * href => Static routes
    */
-  const url = (props.as || props.href) as URL
+  const { as, href, activeMatchOptions, onActiveChange } = props
+  const url = (as || href) as URL
 
   const className = useAddActiveClassName({
     activeClassName,
     childClassName,
     linkUrl: url,
+    activeMatchOptions,
+    onActiveChange,
   })
 
 

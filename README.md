@@ -15,23 +15,57 @@ $ npm install next-active-link
 ## 🚀 Usage
 The usage is the same as the `next/link` component. More information in [Official docs](https://nextjs.org/docs/api-reference/next/link)
 
-The difference is that the _**next-active-link**_ component has an `activeClassName` attribute .
+The differences are that the _**next-active-link**_ component has the following props `activeClassName` and `activeMatchOptions` .
+
+### 🟢 ActiveClassName
+_(Component prop)_ The class name to be added to the link element when the link is active.
+```ts
+const activeClassName: string = 'active-link'
+```
+
+### 🟢 ActiveMatchOptions
+_(Component prop)_ The options to be used to match the link.
+```ts
+/**
+ *  You have the following options:
+ */
+  const activeMatchOptions_Option_1 = {
+    exact: true | false
+  }
+
+  const activeMatchOptions_Option_2 = {
+    paths: 'exact' | 'partial'        // optional
+    queryParams: 'exact' | 'partial'  // optional
+    fragment: 'exact'                 // optional
+  }
+```
+
+### 🟢 onActiveChange
+_(Component `method` prop)_ The callback to be called when the link active state changes.
+```ts
+  const onActiveChange: (isActive: boolean) => {
+    // ...
+  }
+```
+
+## 🤓 Example
 ```tsx
 import { ActiveLink } from 'next-active-link';
 
-function MyPage() {
+  function MyPage() {
+  /**
+   * Adds 'active-link' className to "a" tag
+   * if the current page is '/contact'
+  */
   return (
-    <ActiveLink href="/" activeClassName="active-link">
-      <a>Home</a>
-    </ActiveLink>
-
-
-    {
-      /** Adds 'active-link' className to "a" tag
-      * if the current page is '/contact'
-      */
-    }
-    <ActiveLink href="/contact" activeClassName="active-link">
+    <ActiveLink
+      href="/contact"
+      activeClassName="active-link"
+      onActiveChange={(isActive) => console.log(isActive)}
+      activeMatchOptions={{
+        queryParams: 'exact'
+      }}
+    >
       <a>Contact</a>
     </ActiveLink>
   )

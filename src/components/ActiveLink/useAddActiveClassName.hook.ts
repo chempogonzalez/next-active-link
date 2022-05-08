@@ -2,30 +2,40 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { cn } from 'tiny-cn'
 
+import { isLinkActive } from './ActiveLink.helpers'
+
+import type { ActiveLinkProps } from './ActiveLink'
+
 
 
 interface Params {
   activeClassName: string
   childClassName: string
   linkUrl: string | URL
+  activeMatchOptions: ActiveLinkProps['activeMatchOptions']
+  onActiveChange: ActiveLinkProps['onActiveChange']
 }
 
-export const useAddActiveClassName = ({ activeClassName, childClassName, linkUrl }: Params): string => {
+export const useAddActiveClassName = ({
+  activeClassName,
+  childClassName,
+  linkUrl,
+  activeMatchOptions,
+  onActiveChange,
+}: Params): string => {
   const [className, setClassName] = useState(childClassName)
   const { asPath, isReady } = useRouter()
 
   useEffect(() => {
     /** Whether the router fields are updated client-side and ready for use  */
     if (isReady) {
-      const linkPathname = new URL(linkUrl, location.href).pathname
+      const isActive = isLinkActive(linkUrl, asPath, activeMatchOptions)
 
-      const currentPathname = new URL(asPath, location.href).pathname
-
-      const isLinkPathnameActive = linkPathname === currentPathname
+      if (onActiveChange) onActiveChange(isActive)
 
       const newClassName = cn({
         [childClassName]: true,
-        [activeClassName]: isLinkPathnameActive,
+        [activeClassName]: isActive,
       })
 
       const shouldUpdateLinkClassName = newClassName !== className

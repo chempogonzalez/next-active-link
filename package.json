@@ -19,6 +19,13 @@
     "lint-fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chempogonzalez/next-active-link.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chempogonzalez/next-active-link/issues"
+  },
   "keywords": [
     "next",
     "link",
